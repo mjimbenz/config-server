@@ -25,6 +25,20 @@ Shellmvn spring-boot:runMostrar más líneas
 Run with JAR
 Shelljava -jarMostrar más líneas
 
+🐳 Dockerfile (Simple Runtime Image)
+Your project includes a lightweight Dockerfile that runs the Spring Cloud Config Server using a pre‑built JAR located in the target directory.
+    ▶️ Build Instructions
+    Before building the Docker image, you must first generate the JAR:
+        mvn clean package -DskipTests
+This creates a file in:
+    target/config-server-0.0.1-SNAPSHOT.jar
+    ▶️ Build the Docker Image
+    Use the following command to build the Docker image:
+        docker build -t config-server:latest .
+    ▶️ Run the Docker Container
+    After building the image, you can run it with:
+        docker run -p 8888:8888 config-server:latest
+
 🧪 Testing the Config Server
 Test with an existing file from your Git repo, for example application.yml:
 http://localhost:8888/application/default
